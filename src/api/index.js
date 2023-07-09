@@ -14,7 +14,7 @@ export const deleteContact = param => {
 export const updateContact = param => {
   return axios.put(
     `${apiUrl}/contact/${'cac8a370-19d1-11ee-b70b-e18263cafeee'}`,
-    {data: param},
+    {...param},
   );
 };
 export const contactDetail = param => {
