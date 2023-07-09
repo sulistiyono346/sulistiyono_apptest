@@ -69,7 +69,10 @@ function NewContact({navigation}) {
       age: Number(age),
       photo: 'N/A',
     };
-    dispatch(handleAddContact(payload, Toast));
+    const nav = () => {
+      navigation.goBack(null);
+    };
+    dispatch(handleAddContact(payload, nav, Toast));
   };
 
   return (

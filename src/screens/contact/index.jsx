@@ -25,7 +25,7 @@ function Contact({navigation}) {
     }),
     shallowEqual,
   );
-  console.log('contactList', contactList);
+
   useEffect(() => {
     dispatch(handleGetContactList());
   }, []);

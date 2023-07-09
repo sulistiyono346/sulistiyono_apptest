@@ -6,7 +6,7 @@ export const handleContactDetail = id => async (dispatch, getState) =>
     contactDetail(id)
       .then(({data}) => {
         resolve(data);
-        // dispatch(setContactDetail());
+        dispatch(setContactDetail());
         console.log('contactDetail', data);
       })
       .catch(error => {

@@ -16,7 +16,7 @@ import {colors} from '../../theme/colors';
 
 const ContactList = ({data, handleAction}) => {
   const result = data?.length > 0 ? transformData(data) : [];
-  console.log(result);
+
   return (
     <View style={styles.contactListContainer}>
       {result.length > 0 ? (

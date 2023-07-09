@@ -101,16 +101,28 @@ function DetailContact({navigation}) {
   const handleRightAction = () => {
     if (isEdit) {
       const payload = {
-        ...masterData,
+        photo: masterData.photo,
         firstName: firstName,
         lastName: lastName,
         age: Number(age),
       };
-      const updateMasterData = () => {
-        setMasterData(payload);
-      };
-      dispatch(handleUpdateContact(payload, Toast, updateMasterData));
 
+      const updateMasterData = () => {
+        setMasterData({...masterData, ...payload});
+      };
+      const resetToDataMaster = () => {
+        setFirstName(masterData.firstName);
+        setLastName(masterData.lastName);
+        setAge(String(masterData.age));
+      };
+      dispatch(
+        handleUpdateContact(
+          payload,
+          updateMasterData,
+          resetToDataMaster,
+          Toast,
+        ),
+      );
       setIsEdit(false);
     } else {
       setIsEdit(true);

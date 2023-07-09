@@ -1,14 +1,9 @@
 import {updateContact} from '../../../api';
 
 export const handleUpdateContact =
-  (payload, toast, updateMasterData) => (dispatch, getState) => {
-    const {firstName, lastName, age, photo} = payload;
-    updateContact({
-      firstName,
-      lastName,
-      age,
-      photo,
-    })
+  (payload, updateMasterData, resetToDataMaster, toast) =>
+  (dispatch, getState) => {
+    updateContact(payload)
       .then(({data}) => {
         dispatch(getContactList());
         toast.show({
@@ -18,7 +13,8 @@ export const handleUpdateContact =
         updateMasterData();
       })
       .catch(error => {
-        console.log('error.response');
+        console.log(error.response);
+        resetToDataMaster();
         toast.show({
           type: 'error',
           text1: 'Failed update contact, please try again!',

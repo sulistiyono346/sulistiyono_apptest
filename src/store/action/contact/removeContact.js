@@ -16,6 +16,5 @@ export const handleDeleteContact =
           type: 'error',
           text1: 'Failed to remove spesific contact, please try again!',
         });
-        console.log(error.response);
       });
   };
