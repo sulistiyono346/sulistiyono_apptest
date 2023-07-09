@@ -174,7 +174,6 @@ const styles = StyleSheet.create({
     width: deviceWidth,
     display: 'flex',
     flex: 1,
-
     backgroundColor: colors.WHITE,
   },
   body: {

@@ -9,7 +9,7 @@ export const handleAddContact = (payload, toast) => (dispatch, getState) => {
       dispatch(handleGetContactList());
       toast.show({
         type: 'success',
-        text1: 'Success to add new contact, :)',
+        text1: 'Success to add new contact :)',
       });
     })
     .catch(error => {

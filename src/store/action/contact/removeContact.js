@@ -4,13 +4,12 @@ export const handleDeleteContact =
   (params, nav, toast) => (dispatch, getState) => {
     deleteContact(params)
       .then(({data}) => {
-        toast({
+        toast.show({
           type: 'success',
-          text1: 'Success to remove spesific contac :)',
+          text1: 'Success to remove spesific contact :)',
         });
         dispatch(getContactList());
         nav();
-        console.log('deleteContact', data);
       })
       .catch(error => {
         toast.show({

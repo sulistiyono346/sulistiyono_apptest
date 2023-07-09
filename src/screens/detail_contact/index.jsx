@@ -106,8 +106,11 @@ function DetailContact({navigation}) {
         lastName: lastName,
         age: age,
       };
-      dispatch(handleUpdateContact(payload, Toast));
-      // setMasterData();
+      const updateMasterData = () => {
+        setMasterData(payload);
+      };
+      dispatch(handleUpdateContact(payload, Toast, updateMasterData));
+
       setIsEdit(false);
     } else {
       setIsEdit(true);
@@ -131,7 +134,10 @@ function DetailContact({navigation}) {
           // dismissed
         }
       } catch (error) {
-        Alert.alert(error.message);
+        Toast.show({
+          type: 'error',
+          text1: error?.message,
+        });
       }
     }
   };
@@ -148,8 +154,15 @@ function DetailContact({navigation}) {
       const newFav = [...favData, masterData];
       await AsyncStorage.setItem('favorite', JSON.stringify(newFav));
       setIsFav(true);
+      Toast.show({
+        type: 'success',
+        text1: `Success add favorite`,
+      });
     } catch (e) {
-      // saving error
+      Toast.show({
+        type: 'error',
+        text1: `Failed to add Favorite`,
+      });
     }
   };
 
@@ -160,8 +173,15 @@ function DetailContact({navigation}) {
           const newFav = favData.filter(val => val.id !== masterData.id);
           await AsyncStorage.setItem('favorite', JSON.stringify(newFav));
           setIsFav(false);
+          Toast.show({
+            type: 'success',
+            text1: `Success remove favorite`,
+          });
         } catch (e) {
-          // saving error
+          Toast.show({
+            type: 'error',
+            text1: `Failed to remove favorite`,
+          });
         }
       }
 
@@ -233,9 +253,10 @@ function DetailContact({navigation}) {
                 onPress={() => handleDownload()}>
                 <Image source={icon.iconDownload} style={styles.icon} />
               </TouchableOpacity>
+
               <TouchableOpacity
                 style={styles.favoriteIcon}
-                onPress={() => handleAddFav()}>
+                onPress={() => (!isFav ? handleAddFav() : {})}>
                 <Image source={icon.iconFavorite} style={styles.icon} />
               </TouchableOpacity>
             </View>
@@ -320,7 +341,7 @@ const styles = StyleSheet.create({
   container: {
     width: deviceWidth,
     display: 'flex',
-
+    flex: 1,
     backgroundColor: colors.WHITE,
   },
   body: {
