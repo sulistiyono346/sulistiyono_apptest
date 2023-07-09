@@ -156,6 +156,7 @@ function DetailContact({navigation}) {
 
   const handleDelete = () => {
     const nav = () => {
+      setIsEdit(false);
       navigation.goBack(null);
     };
     dispatch(handleDeleteContact(masterData.id, nav, Toast));

@@ -8,7 +8,7 @@ export const handleUpdateContact =
         dispatch(getContactList());
         toast.show({
           type: 'success',
-          text1: 'Success update new contact :)',
+          text1: 'Success update selected contact :)',
         });
         updateMasterData();
       })
