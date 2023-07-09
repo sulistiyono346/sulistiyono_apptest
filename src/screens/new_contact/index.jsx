@@ -66,7 +66,7 @@ function NewContact({navigation}) {
     const payload = {
       firstName: firstName,
       lastName: lastName,
-      age: age,
+      age: Number(age),
       photo: 'N/A',
     };
     dispatch(handleAddContact(payload, Toast));
@@ -145,6 +145,7 @@ function NewContact({navigation}) {
               <H3>Age</H3>
             </View>
             <TextInput
+              keyboardType="numeric"
               value={age}
               style={styles.input}
               placeholder="age"
