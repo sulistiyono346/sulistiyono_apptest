@@ -263,7 +263,7 @@ function DetailContact({navigation}) {
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.downloadIcon}
-                onPress={() => handleDownload()}>
+                onPress={() => handleShare()}>
                 <Image source={icon.iconDownload} style={styles.icon} />
               </TouchableOpacity>
 
