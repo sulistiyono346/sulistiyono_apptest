@@ -104,7 +104,7 @@ function DetailContact({navigation}) {
         ...masterData,
         firstName: firstName,
         lastName: lastName,
-        age: age,
+        age: Number(age),
       };
       const updateMasterData = () => {
         setMasterData(payload);
