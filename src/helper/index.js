@@ -8,7 +8,7 @@ export const isValidUrlImage = url => {
 };
 
 export const checkIsFavorite = (list, id) => {
-  return list.some(obj => obj.id === id);
+  return list?.some(obj => obj.id === id);
 };
 
 export const transformData = data => {
