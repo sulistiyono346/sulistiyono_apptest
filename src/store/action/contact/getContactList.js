@@ -7,7 +7,8 @@ export const handleGetContactList = () => (dispatch, getState) => {
       const contacts = data?.data.map(el => ({
         ...el,
         search: el.firstName + el.lastName,
-        uniqKey: el.firstName[0] || el.lastName[0],
+        uniqKey:
+          el.firstName[0]?.toUpperCase() || el.lastName[0]?.toUpperCase(),
       }));
 
       dispatch(setContactList(contacts));
