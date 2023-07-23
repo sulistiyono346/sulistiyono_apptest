@@ -6,7 +6,7 @@ axios.interceptors.request.use(
     config.headers.Accept = 'application/json';
 
     // Do something before request is sent
-    console.log('config', config);
+
     return config;
   },
   function (error) {
@@ -18,7 +18,6 @@ axios.interceptors.request.use(
 // Add a response interceptor
 axios.interceptors.response.use(
   function (response) {
-    console.log('response', response);
     // Do something with response data
     return response;
   },

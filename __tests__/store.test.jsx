@@ -12,6 +12,10 @@ import {
   setContactList,
   setContactListMaster,
 } from '../src/store/action/contact';
+import {
+  SET_CONTACT_DETAIL,
+  setContactDetail,
+} from '../src/store/action/contact_detail';
 
 describe('Store Test', () => {
   it('[Set Contact List Master] function given 2 data , setContactListMaster should return 2 length of data', () => {
