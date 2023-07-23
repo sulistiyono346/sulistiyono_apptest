@@ -13,3 +13,11 @@
 ## Features
 
 > 🛠 Built with React Reacnative,
+> 🛠 Test with Jest
+
+## Additional NPM Scripts
+
+| Script | Description       |
+| ------ | ----------------- |
+| start  | Start App         |
+| test   | Start Testing App |
