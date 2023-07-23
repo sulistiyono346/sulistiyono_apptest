@@ -1,6 +1,12 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {Dimensions, SafeAreaView, StyleSheet, View} from 'react-native';
+import {
+  Dimensions,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import H1 from '../H1';
 
@@ -11,13 +17,13 @@ const AppBar = ({title, leftAction, rightAction, leftIcon, rightIcon}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <View style={styles.leftButtonView} onTouchEnd={leftAction}>
+        <TouchableOpacity onPress={leftAction} style={styles.leftButtonView}>
           {leftIcon}
-        </View>
+        </TouchableOpacity>
         <H1>{title}</H1>
-        <View style={styles.rightButtonView} onTouchEnd={rightAction}>
+        <TouchableOpacity style={styles.rightButtonView} onPress={rightAction}>
           {rightIcon}
-        </View>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

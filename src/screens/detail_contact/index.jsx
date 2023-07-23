@@ -159,7 +159,10 @@ function DetailContact({navigation}) {
       setIsEdit(false);
       navigation.goBack(null);
     };
-    dispatch(handleDeleteContact(masterData.id, nav, Toast));
+    const params = {
+      id: masterData.id,
+    };
+    dispatch(handleDeleteContact(params, nav, Toast));
   };
 
   const handleAddFav = async () => {
