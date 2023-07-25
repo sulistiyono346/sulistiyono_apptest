@@ -8,8 +8,11 @@ export const getContactList = () => {
 export const addContact = payload => {
   return axios.post(`${apiUrl}/contact`, payload);
 };
-export const deleteContact = param => {
-  return axios.delete(`${apiUrl}/contact/${param}`);
+export const deleteContact = params => {
+  return axios.delete(`${apiUrl}/contact/${params.id}`);
+  // return axios.delete(`${apiUrl}/contact`, {
+  //   params: {id: params.id},
+  // });
 };
 export const updateContact = param => {
   return axios.put(

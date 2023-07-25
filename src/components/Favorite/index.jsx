@@ -28,6 +28,7 @@ const Favorite = ({data, label, handleAction}) => {
           data={data}
           renderItem={({item, key}) => (
             <TouchableOpacity
+              testID={`item-image-${item.id}`}
               key={key}
               style={styles.itemContainer}
               activeOpacity={0.8}

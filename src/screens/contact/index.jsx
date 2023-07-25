@@ -76,7 +76,7 @@ function Contact({navigation}) {
           <SearchInput value={search} onChangeText={val => handleSearch(val)} />
           <Favorite
             data={favData}
-            label="Favorite :"
+            label="Favorites :"
             handleAction={cb =>
               navigation.navigate('ContactDetail', {
                 id: cb,

@@ -28,6 +28,7 @@ const ContactList = ({data, handleAction}) => {
             {contact?.data?.length > 0 ? (
               contact?.data.map(item => (
                 <TouchableOpacity
+                  testID="contact-item"
                   style={styles.bodyContactList}
                   key={item.id}
                   onPress={() => handleAction(item.id)}>
@@ -56,7 +57,7 @@ const ContactList = ({data, handleAction}) => {
                       <H2>{`${item?.firstName} ${item?.lastName}`}</H2>
                     </View>
                     <View style={styles.contactAge}>
-                      <Paragraf>111</Paragraf>
+                      <Paragraf>{`Age ${item.age}`}</Paragraf>
                     </View>
                   </View>
                 </TouchableOpacity>
@@ -67,7 +68,7 @@ const ContactList = ({data, handleAction}) => {
           </View>
         ))
       ) : (
-        <></>
+        <Text>Maaf Data Kosong</Text>
       )}
     </View>
   );
